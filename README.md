@@ -1,6 +1,6 @@
-# EY GenAI Consulting POC
+# operational-intelligence-nlp-toolkit
 
-A proof-of-concept demonstrating GenAI and NLP capabilities for consulting engagements: automated document classification, insight extraction, and report generation using synthetic business document data.
+An enterprise-grade intelligence engine demonstrating advanced Generative AI pipeline design and Natural Language Processing capabilities for automated document classification, structural insight extraction, and client-ready report generation from unstructured business datasets.
 
 ## Project Structure
 
