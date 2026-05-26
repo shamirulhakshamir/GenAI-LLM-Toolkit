@@ -1,6 +1,7 @@
-# operational-intelligence-nlp-toolkit
+# GenAI-LLM-Toolkit
 
-An enterprise-grade intelligence engine demonstrating advanced Generative AI pipeline design and Natural Language Processing capabilities for automated document classification, structural insight extraction, and client-ready report generation from unstructured business datasets.
+.An NLP and document intelligence toolkit featuring automated document classification, insight extraction, and report generation 
+— built to demonstrate production-grade NLP pipeline design.
 
 ## Project Structure
 
