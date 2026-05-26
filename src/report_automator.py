@@ -46,7 +46,7 @@ class ReportAutomator:
         ],
     }
 
-    def __init__(self, analyst_name="Shamirul Hak Surbudeen", firm_name="EY"):
+    def __init__(self, analyst_name="Shamirul Hak Surbudeen", firm_name="GenAI Toolkit"):
         self.analyst_name = analyst_name
         self.firm_name = firm_name
 
