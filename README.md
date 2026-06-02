@@ -1,6 +1,6 @@
 # GenAI-LLM-Toolkit
 
-.An NLP and document intelligence toolkit featuring automated document classification, insight extraction, and report generation 
+An NLP and document intelligence toolkit featuring automated document classification, insight extraction, and report generation 
 — built to demonstrate production-grade NLP pipeline design.
 
 ## Project Structure
