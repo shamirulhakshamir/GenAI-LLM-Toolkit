@@ -6,7 +6,7 @@
 ## Project Structure
 
 ```
-POC_Project/
+operational-intelligence-nlp-toolkit/
   src/
     document_classifier.py   - TF-IDF document classification pipeline
     insight_extractor.py      - Automated insight extraction from text
