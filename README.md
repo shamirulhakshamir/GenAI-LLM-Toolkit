@@ -1,34 +1,40 @@
 # GenAI-LLM-Toolkit
 
-An NLP and document intelligence toolkit featuring automated document classification, insight extraction, and report generation 
-— built to demonstrate production-grade NLP pipeline design.
+An enterprise-grade LLM orchestration and agentic systems toolkit featuring multi-step task orchestration, secure custom protocol servers, and schema-enforced output pipelines — built to demonstrate production-grade AI engineering design patterns.
 
 ## Project Structure
 
-```
-operational-intelligence-nlp-toolkit/
-  src/
-    document_classifier.py   - TF-IDF document classification pipeline
-    insight_extractor.py      - Automated insight extraction from text
-    report_automator.py       - Automated consulting report generation
-  tests/
-    test_document_classifier.py
-    test_insight_extractor.py
-    test_report_automator.py
-  requirements.txt
-  README.md
+```text
+genai-llm-toolkit/
+├── src/
+│   ├── document_classifier.py    - LangGraph multi-agent orchestration & routing
+│   ├── insight_extractor.py      - Custom MCP server & tool data integration
+│   └── report_automator.py       - LCEL execution chain & Pydantic structured output
+├── tests/
+│   ├── test_document_classifier.py
+│   ├── test_insight_extractor.py
+│   └── test_report_automator.py
+├── requirements.txt
+└── README.md
 ```
 
 ## Components
 
-### 1. Document Classifier (`src/document_classifier.py`)
-Classifies business documents into categories (financial reports, legal contracts, HR policies, technical specs, marketing briefs) using TF-IDF vectorization and logistic regression. Includes synthetic training data generation and a full train/predict pipeline.
+### 1. Agent Logic & Workflows (`src/document_classifier.py`)
+Architects a multi-agent orchestration system using **LangGraph** to process complex internal business workflows. Implements:
+- **State-driven task orchestration** and cyclical execution loops for complex document routing.
+- **Conditional routing nodes** that evaluate text intent to dynamically delegate tasks across specialized LLM modules.
+- **Human-in-the-Loop gates** designed to pause execution for manual verification on high-impact state transitions.
 
-### 2. Insight Extractor (`src/insight_extractor.py`)
-Extracts structured insights from unstructured business text: key metrics (percentages, currency, counts), named entities, sentiment indicators, and action items. Uses regex-based NLP patterns for reliable extraction without external API dependencies.
+### 2. Context Layer & Custom Protocols (`src/insight_extractor.py`)
+Implements native **Model Context Protocol (MCP)** servers to bridge LLM capability with local data layers and infrastructure. Implements:
+- **Exposed Enterprise Tools:** Wraps internal file paths and system endpoints into unified schemas consumable by agents.
+- **Scoped Token Authentication:** Enforces strict security layers, mapping the LLM session context directly to explicit database access levels to prevent prompt injections and data leaks.
 
-### 3. Report Automator (`src/report_automator.py`)
-Generates structured consulting reports from extracted insights and classification results. Produces executive summaries, key findings, and recommendations in a standardized format suitable for client delivery.
+### 3. Execution & Structured Data Output (`src/report_automator.py`)
+Standardizes model communication and data extraction pipelines to ensure reliable backend integrations. Implements:
+- **LangChain Expression Language (LCEL):** Streamlined runtime chains using parallel execution blocks and robust model failover configurations.
+- **Pydantic Validation Engines:** Enforces rigid schema parsing to guarantee LLM payloads compile into predictable, minified JSON before execution.
 
 ## Quick Start
 
@@ -39,33 +45,32 @@ python -m pytest tests/ -v
 
 ## Running Individual Components
 
-```python
+python
 from src.document_classifier import DocumentClassifier
 from src.insight_extractor import InsightExtractor
 from src.report_automator import ReportAutomator
 
-# Classify a document
-clf = DocumentClassifier()
-clf.train()
-result = clf.predict("Q3 revenue increased by 12% driven by strong APAC growth")
+# 1. Orchestrate agent workflows using state-driven routing
+agent = DocumentClassifier()
+result = agent.run_workflow("Process internal document validation for employee reference ID: HR-9081.")
 
-# Extract insights
-extractor = InsightExtractor()
-insights = extractor.extract("Revenue grew 15% to $2.3M with 500 new customers")
+# 2. Expose secure data context via MCP server bindings
+context_layer = InsightExtractor()
+mcp_tools = context_layer.initialize_mcp_server(scoped_token="env_session_token")
 
-# Generate report
-automator = ReportAutomator()
-report = automator.generate(classification=result, insights=insights)
-print(report)
-```
+# 3. Parse and enforce strict output constraints on payloads
+validator = ReportAutomator()
+validated_json = validator.generate_structured_payload(raw_agent_output=result)
+print(validated_json)
+
 
 ## Tech Stack
 
-- **Python 3.10+**
-- **Scikit-learn** - TF-IDF vectorization, logistic regression
-- **Pandas/NumPy** - Data manipulation
-- **NLTK** - Text preprocessing
-- **Pytest** - Testing framework
+- *Python 3.10+*
+- *LangGraph* - State management, multi-agent systems, conditional routing
+- *LangChain & LCEL* - Tool-calling, Pydantic data extraction, runtime failover
+- *Model Context Protocol (MCP)* - Secure context layers, client-server tool schemas
+- *Pytest* - Automated regression testing suites
 
 ## Author
 
